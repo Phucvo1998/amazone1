@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #f3f3f3;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header styles */
+        header {
+            background-color: #232f3e;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            max-width: 120px;
+        }
+        
+        /* Hero section */
+        .hero {
+            background-color: #fff;
+            padding: 40px 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        
+        .hero h1 {
+            font-size: 2.2rem;
+            color: #232f3e;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto 20px;
+            color: #555;
+        }
+        
+        /* Call button styles */
+        .call-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #ff9900;
+            color: #fff;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            z-index: 999;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .call-button:hover {
+            transform: scale(1.1);
+            background-color: #e88a00;
+        }
+        
+        .call-button svg {
+            width: 30px;
+            height: 30px;
+        }
+        
+        .hero-call-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #ff9900;
+            color: #fff;
+            border-radius: 50px;
+            padding: 10px 15px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .hero-call-button:hover {
+            background-color: #e88a00;
+        }
+        
+        .hero-call-button svg {
+            width: 20px;
+            height: 20px;
+            margin-right: 8px;
+        }
+        
+        .hero-call-button span {
+            font-weight: bold;
+        }
+        
+        /* Contact options section */
+        .contact-options {
+            padding: 40px 0;
+        }
+        
+        .contact-options h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #232f3e;
+            font-size: 1.8rem;
+        }
+        
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .option-card {
+            background: #fff;
+            border-radius: 8px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .option-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        }
+        
+        .option-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 15px;
+        }
+        
+        .option-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: #232f3e;
+        }
+        
+        .option-card p {
+            margin-bottom: 20px;
+            color: #555;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #ff9900;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        
+        .btn:hover {
+            background-color: #e88a00;
+        }
+        
+        /* Section dividers */
+        .section-divider {
+            height: 2px;
+            background-color: #ddd;
+            margin: 20px auto;
+            width: 80%;
+        }
+        
+        .quick-call {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .quick-call h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: #232f3e;
+        }
+        
+        .quick-call-btn {
+            display: inline-flex;
+            align-items: center;
+            background-color: #ff9900;
+            color: #fff;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease;
+        }
+        
+        .quick-call-btn:hover {
+            background-color: #e88a00;
+        }
+        
+        .quick-call-btn svg {
+            width: 20px;
+            height: 20px;
+            margin-right: 8px;
+        }
+        
+        /* Contact form section */
+        .contact-form {
+            background-color: #fff;
+            padding: 40px 0;
+            box-shadow: 0 -2px 5px rgba(0,0,0,0.05);
+        }
+        
+        .contact-form h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #232f3e;
+            font-size: 1.8rem;
+        }
+        
+        form {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #444;
+        }
+        
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background-color: #ff9900;
+            color: #fff;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1.1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-weight: bold;
+        }
+        
+        .submit-btn:hover {
+            background-color: #e88a00;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #232f3e;
+            color: #fff;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .footer-links {
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: #ddd;
+            margin: 5px 10px;
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            color: #ff9900;
+        }
+        
+        .footer-call {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+        }
+        
+        .footer-call a {
+            display: inline-flex;
+            align-items: center;
+            background-color: #ff9900;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        
+        .footer-call a:hover {
+            background-color: #e88a00;
+        }
+        
+        .footer-call svg {
+            width: 18px;
+            height: 18px;
+            margin-right: 8px;
+        }
+        
+        .copyright {
+            color: #aaa;
+            font-size: 0.9rem;
+            margin-top: 20px;
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .options-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .option-card {
+                margin-bottom: 20px;
+            }
+            
+            .hero-call-button {
+                top: 10px;
+                right: 10px;
+                padding: 8px 12px;
+            }
+            
+            .hero-call-button svg {
+                width: 16px;
+                height: 16px;
+            }
+            
+            .hero-call-button span {
+                font-size: 0.9rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero {
+                padding: 30px 0;
+            }
+            
+            .hero h1 {
+                font-size: 1.5rem;
+                margin-top: 20px;
+            }
+            
+            .hero p {
+                font-size: 0.9rem;
+            }
+            
+            .option-icon {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .option-card h3 {
+                font-size: 1.2rem;
+            }
+            
+            .submit-btn {
+                width: 100%;
+            }
+            
+            .quick-call-btn {
+                padding: 10px 15px;
+                font-size: 1rem;
+            }
+            
+            .hero-call-button {
+                position: relative;
+                top: auto;
+                right: auto;
+                margin: 15px auto 0;
+                display: inline-flex;
+            }
+            
+            .call-button {
+                bottom: 15px;
+                right: 15px;
+                width: 50px;
+                height: 50px;
+            }
+            
+            .call-button svg {
+                width: 24px;
+                height: 24px;
+            }
+        }
+
+        /* Phone icon styles */
+        .icon-phone {
+            width: 30px;
+            height: 30px;
+            margin: 0 auto 15px;
+            display: block;
+        }
+        
+        .icon-email {
+            width: 50px; 
+            height: 50px;
+            margin: 0 auto 15px;
+        }
+        
+        .icon-location {
+            width: 40px;
+            height: 40px;
+            margin: 0 auto 15px;
+        }
+        
+        .option-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            padding: 30px 20px;
+        }
+
+        .footer-phone {
+            color: #ddd;
+            text-decoration: none;
+        }
+        
+        .footer-phone:hover {
+            color: #ff9900;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <img src="https://public.youware.com/users-website-assets/prod/d2607e1f-42f5-4154-928e-b7b05307c1b8/9852dd9065004e24a6f5d1192853a917.png" alt="Logo" class="logo">
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>How Can We Help You?</h1>
+            <p>We're here to answer your questions and resolve any issues you might have. Choose one of the options below or use our contact form to get in touch with our customer support team.</p>
+            <a href="tel:+18775145126" class="hero-call-button">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="#fff"/>
+                </svg>
+                <span>+1-877-514-5126</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Contact Options Section -->
+    <section class="contact-options">
+        <div class="container">
+            <h2>Contact Options</h2>
+            <div class="options-grid">
+                <div class="option-card">
+                    <svg class="icon-phone" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" stroke="#232f3e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <h3>Call Us</h3>
+                    <p>Our customer service team is available to help you 24/7.</p>
+                    <a href="tel:+18775145126" class="btn">+1-877-514-5126</a>
+                </div>
+                <div class="option-card">
+                    <svg class="icon-email" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="#232f3e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M22 6l-10 7-10-7" stroke="#232f3e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <h3>Email Us</h3>
+                    <p>Give us an Call and we'll get back to you within 1 minute.</p>
+                    <a href="tel:+18775145126" class="btn">Contact Support</a>
+                </div>
+                <div class="option-card">
+                    <svg class="icon-location" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="#232f3e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="12" cy="10" r="3" stroke="#232f3e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <h3>Visit Us</h3>
+                    <p>Find one of our locations near you for in-person assistance.</p>
+                    <a href="tel:+18775145126" class="btn">Find Locations</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Call Section -->
+    <section class="quick-call">
+        <div class="container">
+            <h3>Need Immediate Help?</h3>
+            <a href="tel:+18775145126" class="quick-call-btn">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="#fff"/>
+                </svg>
+                Call +1-877-514-5126 Now
+            </a>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <div class="footer-call">
+                <a href="tel:+18775145126">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="#fff"/>
+                    </svg>
+                    Call us: +1-877-514-5126
+                </a>
+            </div>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="tel:+18775145126" class="footer-phone">Support: +1-877-514-5126</a>
+            </div>
+            <p class="copyright">© 2023 All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <!-- Fixed Call Button -->
+    <a href="tel:+18775145126" class="call-button">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="#fff"/>
+        </svg>
+    </a>
+</body>
+</html>
